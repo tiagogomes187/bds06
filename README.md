@@ -28,35 +28,37 @@ https://www.figma.com/file/qmduL2GXrMrqRLyFjFCk56/MovieFlix-web
 
 ## O que devo fazer para resolver o desafio?
 
-Basicamente você deverá cumprir três etapas:
+## Casos de uso
 
-- Implementar o modelo conceitual proposto com seed do banco de dados.
-- Incluir a infraestrutura de exceções, validação e segurança ao projeto.
-- Implementar o endpoint mostrado abaixo.
+### Efetuar login
 
-## Requisitos do seed para os testes passarem:
+1. [IN] O usuário **anônimo** informa seu email e senha
+2. [OUT] O **sistema** informa um token válido
 
-1. Seu seed deve conter dois usuários:
+### Listar filmes
 
-2. 1. Usuário **somente** com perfil VISITOR:
+1. [OUT] O **sistema** apresenta uma listagem dos nomes de todos gêneros, bem como uma listagem paginada com título, subtítulo, ano e imagem dos filmes, **ordenada alfabeticamente por título**.
+2. [IN] O usuário **visitante ou membro** seleciona, opcionalmente, um gênero.
+3. [OUT] O **sistema** apresenta a listagem atualizada, restringindo somente ao gênero selecionado.
 
-   2. 1. email: bob@gmail.com
-      2. senha: 123456
+### Visualizar detalhes do filme
 
-   3. Usuário com perfil MEMBER:
-
-   4. 1. email: ana@gmail.com
-      2. senha: 123456
-
-## Endpoint que deverá ser feito:
-
-#### 1) Obter o perfil do usuário logado
-
-GET /users/profile
+1. [IN] O usuário **visitante ou membro** seleciona um filme
+2. [OUT] O **sistema** informa título, subtítulo, ano, imagem e sinopse do filme, e também uma listagem dos textos das avaliações daquele filme juntamente com nome do usuário que fez cada avaliação.
+3. [IN] O usuário **membro** informa, opcionalmente, um texto para avaliação do filme.
+4. [OUT] O sistema apresenta os dados atualizados, já aparecendo também a avaliação feita pelo usuário.
 
 
 
-**Mínimo para aprovação**: 8/8
+**Exceção 3.1 - Texto vazio**
+
+3.1.1. O sistema apresenta uma mensagem de que não é permitido texto vazio na avaliação 
+
+
+
+**Mínimo para aprovação\***: 12/15
+
+\* Os testes de entidade foram mantidos no projeto para assegurar a correta estrutura do modelo de domínio, mas não entram na pontuação desta avaliação.
 
 # Autor
 
