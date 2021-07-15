@@ -48,7 +48,7 @@ public class ReviewResourceIT {
 
 	@Test
 	public void insertShouldReturnUnauthorizedWhenNotValidToken() throws Exception {
-
+		//PASSOU!
 		ReviewDTO reviewDTO = new ReviewDTO();
 		reviewDTO.setText("Gostei do filme!");
 		reviewDTO.setMovieId(1L);
